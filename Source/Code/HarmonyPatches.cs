@@ -26,7 +26,10 @@ namespace PredictableDrills
             if (resource == null) return null;
 
             // Default to whatever vanilla generated if we can't find a proper chunk type
-            return cell.GetTerrain(map).GetMapChunk(map) ?? resource;
+
+            int idx = map.cellIndices.CellToIndex(cell);
+            TerrainDef naturalTerrain = map.terrainGrid.UnderTerrainAt(idx) ?? map.terrainGrid.TerrainAt(idx);
+            return naturalTerrain.GetMapChunk(map) ?? resource;
         }
     }
 }
