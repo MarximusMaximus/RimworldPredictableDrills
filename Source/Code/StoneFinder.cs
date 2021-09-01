@@ -15,13 +15,15 @@ namespace PredictableDrills
         public static ThingDef GetMapChunk(this TerrainDef terrain, Map map)
         {
             return Find.World.NaturalRockTypesIn(map.Tile)
-                    .FirstOrDefault(r =>
+                    .Where(r =>
                     {
                         return terrain == r.building.leaveTerrain
                             || terrain == r.building.naturalTerrain
                             || terrain == r.building.leaveTerrain.smoothedTerrain
                             || terrain == r.building.naturalTerrain.smoothedTerrain;
-                    });
+                    })
+                    .Select(r => r.building.mineableThing)
+                    .FirstOrDefault();
         }
     }
 }
