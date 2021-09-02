@@ -1,3 +1,7 @@
+# v1.0.1 - Hotfix
+**Changes**
+- List Harmony as a dependency
+
 # v1.0.0 - Initial Release
 **Features**
 - Deep drills dig up the rocks they're sitting on!
