@@ -3,10 +3,10 @@
     <PDD_Settings>Predictable Deep Drills</PDD_Settings>
     
     <PDD_AllowNonMapStone>Allow drilling for non-native stone</PDD_AllowNonMapStone>
-    <PDD_AllowNonMapStone_Desc>If enabled, deep drills on a patch of stone can drill up that kind of stone, even if it's not native to the map.</PDD_AllowNonMapStone_Desc>
+    <PDD_AllowNonMapStone_Desc>If enabled, deep drills on a patch of stone can drill up that kind of stone even if it's not native to the map.</PDD_AllowNonMapStone_Desc>
     
     <PDD_AllowStonelessMaps>Allow drilling for stone in stoneless biomes</PDD_AllowStonelessMaps>
-    <PDD_AllowStonelessMaps_Desc>If enabled, deep drills on a patch of stone can drill up stone chunks, even if the biome you're in would not normally allow drilling for stone (such as sea ice).</PDD_AllowStonelessMaps_Desc>
+    <PDD_AllowStonelessMaps_Desc>If enabled, deep drills on a patch of stone can drill up stone chunks even if the biome you're in would not normally allow drilling for stone (such as sea ice).</PDD_AllowStonelessMaps_Desc>
     
     <PDD_ResetAll>Reset All Settings</PDD_ResetAll>
     <PDD_ResetAllConfirmation>Reset all Predictable Deep Drill settings to default?</PDD_ResetAllConfirmation>
