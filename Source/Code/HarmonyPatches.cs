@@ -23,13 +23,15 @@ namespace PredictableDrills
         static ThingDef Postfix(ThingDef resource, Map map, IntVec3 cell)
         {
             // Don't drop stones if we wouldn't be dropping them anyway
-            if (resource == null) return null;
+            if (resource == null && !PredictableDrill.Settings.alwaysDropStone) return null;
 
-            // Default to whatever vanilla generated if we can't find a proper chunk type
+            TerrainDef naturalTerrain = map.GetBaseTerrainAt(cell);
 
-            int idx = map.cellIndices.CellToIndex(cell);
-            TerrainDef naturalTerrain = map.terrainGrid.UnderTerrainAt(idx) ?? map.terrainGrid.TerrainAt(idx);
-            return naturalTerrain.GetMapChunk(map) ?? resource;
+            ThingDef chunk = PredictableDrill.Settings.dropNonMapStone ?
+                    naturalTerrain.GetChunk() : naturalTerrain.GetMapChunk(map);
+
+            // Default to whatever vanilla generated if we can't find a chunk type for the given terrain
+            return chunk ?? resource;
         }
     }
 }

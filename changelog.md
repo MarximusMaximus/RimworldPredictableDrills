@@ -1,3 +1,8 @@
+# v1.1.0 - Settings
+**Changes**
+- Add a setting that allows drilling non-native patches of stone for the relevant chunks.
+- Add a setting that allows drilling stone from stone patches in biomes that normally wouldn't allow deep drilling for stone, such as sea ice.
+
 # v1.0.1 - Hotfix
 **Changes**
 - List Harmony as a dependency
