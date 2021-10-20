@@ -28,22 +28,22 @@ namespace PredictableDrills
             Listing_Standard listingStandard = new Listing_Standard();
             listingStandard.Begin(inRect);
 
-            listingStandard.CheckboxLabeled("Allow drilling for non-native stone", ref Settings.dropNonMapStone,
-                "If enabled, deep drills on a patch of stone can drill up that kind of stone, even if it's not native" +
-                " to the map.");
+            listingStandard.CheckboxLabeled("PDD_AllowNonMapStone".Translate(),
+                ref Settings.dropNonMapStone,
+                "PDD_AllowNonMapStone_Desc".Translate());
 
-            listingStandard.CheckboxLabeled("Allow drilling for stone in stoneless biomes", ref Settings.alwaysDropStone,
-                "If enabled, deep drills on a patch of stone can drill up stone chunks, even if the biome you're in" +
-                " would not normally allow drilling for stone (such as sea ice).");
+            listingStandard.CheckboxLabeled("PDD_AllowStonelessMaps".Translate(),
+                ref Settings.alwaysDropStone,
+                "PDD_AllowStonelessMaps_Desc".Translate());
 
             listingStandard.GapLine();
 
-            if (listingStandard.ButtonText("Reset All Settings"))
+            if (listingStandard.ButtonText("PDD_ResetAll".Translate()))
             {
                 Dialog_MessageBox confirmDialog = new Dialog_MessageBox(
-                    "Reset all Predictable Deep Drill settings to default?",
-                    "Reset", Settings.ResetAll,
-                    "Cancel", null,
+                    "PDD_ResetAllConfirmation".Translate(),
+                    "PDD_ResetButton".Translate(), Settings.ResetAll,
+                    "PDD_CancelButton".Translate(), null,
                     buttonADestructive: true
                 );
                 Find.WindowStack.Add(confirmDialog);
@@ -58,8 +58,7 @@ namespace PredictableDrills
         /// <returns> The (translated) mod name. </returns>
         public override string SettingsCategory()
         {
-            //TODO translate
-            return "Predictable Deep Drills";
+            return "PDD_Settings".Translate();
         }
     }
 
