@@ -1,3 +1,7 @@
+# v1.2.0 - Rimworld 1.4 Update
+**Features**
+- Updated to Rimworld 1.4 (Still compatable with 1.3 as well)
+
 # v1.1.0 - Settings
 **Changes**
 - Add a setting that allows drilling non-native patches of stone for the relevant chunks.

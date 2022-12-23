@@ -20,6 +20,6 @@ Global
 		$0.TextStylePolicy = $1
 		$1.TabsToSpaces = True
 		$1.scope = text/plain
-		outputpath = ../../1.3/Assemblies
+		outputpath = ../../1.4/Assemblies
 	EndGlobalSection
 EndGlobal

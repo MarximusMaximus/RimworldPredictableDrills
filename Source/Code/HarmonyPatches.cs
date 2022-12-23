@@ -7,7 +7,7 @@ using Verse;
 namespace PredictableDrills
 {
     [StaticConstructorOnStartup]
-    class HarmonyPatches
+    internal class HarmonyPatches
     {
         static HarmonyPatches()
         {
@@ -20,14 +20,14 @@ namespace PredictableDrills
     [HarmonyPatch("GetBaseResource", new Type[] { typeof(Map), typeof(IntVec3)})]
     static class Patch_PathFinder_FindPath
     {
-        static ThingDef Postfix(ThingDef resource, Map map, IntVec3 cell)
+        private static ThingDef Postfix(ThingDef resource, Map map, IntVec3 cell)
         {
             // Don't drop stones if we wouldn't be dropping them anyway
             if (resource == null && !PredictableDrill.Settings.alwaysDropStone) return null;
 
-            TerrainDef naturalTerrain = map.GetBaseTerrainAt(cell);
+            var naturalTerrain = map.GetBaseTerrainAt(cell);
 
-            ThingDef chunk = PredictableDrill.Settings.dropNonMapStone ?
+            var chunk = PredictableDrill.Settings.dropNonMapStone ?
                     naturalTerrain.GetChunk() : naturalTerrain.GetMapChunk(map);
 
             // Default to whatever vanilla generated if we can't find a chunk type for the given terrain

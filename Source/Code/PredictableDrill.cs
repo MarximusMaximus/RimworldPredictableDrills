@@ -25,7 +25,7 @@ namespace PredictableDrills
         /// <param name="inRect">In rect.</param>
         public override void DoSettingsWindowContents(Rect inRect)
         {
-            Listing_Standard listingStandard = new Listing_Standard();
+            var listingStandard = new Listing_Standard();
             listingStandard.Begin(inRect);
 
             listingStandard.CheckboxLabeled("PDD_AllowNonMapStone".Translate(),
