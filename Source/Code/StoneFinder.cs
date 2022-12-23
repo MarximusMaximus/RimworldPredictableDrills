@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using Verse;
 
@@ -7,16 +6,16 @@ namespace PredictableDrills
 {
     public static class StoneFinder
     {
-        private static List<ThingDef> naturalRockDefs;
+        private static List<ThingDef> _naturalRockDefs;
 
         /// <summary>
         /// Returns the base terrain type of the given cell
         /// </summary>
-        /// <param name="map">Map.</param>
-        /// <param name="cell">Cell.</param>
+        /// <param name="map">The map the cell is in.</param>
+        /// <param name="cell">The cell to get the terrain of.</param>
         public static TerrainDef GetBaseTerrainAt(this Map map, IntVec3 cell)
         {
-            int idx = map.cellIndices.CellToIndex(cell);
+            var idx = map.cellIndices.CellToIndex(cell);
             return map.terrainGrid.UnderTerrainAt(idx) ?? map.terrainGrid.TerrainAt(idx);
         }
 
@@ -28,14 +27,14 @@ namespace PredictableDrills
         /// <param name="terrain">Terrain.</param>
         public static ThingDef GetChunk(this TerrainDef terrain)
         {
-            if (naturalRockDefs == null)
+            if (_naturalRockDefs == null)
             {
-                naturalRockDefs = DefDatabase<ThingDef>.AllDefs
+                _naturalRockDefs = DefDatabase<ThingDef>.AllDefs
                                         .Where(d => d.IsNonResourceNaturalRock)
                                         .ToList();
             }
 
-            return naturalRockDefs.Where(r => terrain.IsTerrainForRock(r))
+            return _naturalRockDefs.Where(terrain.IsTerrainForRock)
                     .Select(r => r.building.mineableThing)
                     .FirstOrDefault();
         }
@@ -45,11 +44,12 @@ namespace PredictableDrills
         /// Otherwise returns null.
         /// </summary>
         /// <returns>The chunk.</returns>
-        /// <param name="terrain">Terrain.</param>
+        /// <param name="terrain">The terrain to check.</param>
+        /// <param name="map">Map tile the terrain is on.</param>
         public static ThingDef GetMapChunk(this TerrainDef terrain, Map map)
         {
             return Find.World.NaturalRockTypesIn(map.Tile)
-                    .Where(r => terrain.IsTerrainForRock(r))
+                    .Where(terrain.IsTerrainForRock)
                     .Select(r => r.building.mineableThing)
                     .FirstOrDefault();
         }
@@ -58,9 +58,9 @@ namespace PredictableDrills
         /// <summary>
         /// Tests whether this terrain type is one of the associated terrain types for the given rock ThingDef
         /// </summary>
-        /// <returns><c>true</c>, if terrain for rock was ised, <c>false</c> otherwise.</returns>
-        /// <param name="terrain">Terrain.</param>
-        /// <param name="rock">Rock.</param>
+        /// <returns><c>true</c>, if the terrain is associated to the rock ThingDef, <c>false</c> otherwise.</returns>
+        /// <param name="terrain">Terrain to check.</param>
+        /// <param name="rock">Rock def to check against.</param>
         public static bool IsTerrainForRock(this TerrainDef terrain, ThingDef rock)
         {
             return terrain == rock.building.leaveTerrain
