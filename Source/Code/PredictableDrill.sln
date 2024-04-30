@@ -1,19 +1,47 @@
-
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34728.123
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PredictableDrill", "PredictableDrill.csproj", "{B4FD4309-52D1-45CD-A5CD-316C5556EB2C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OtherFiles", "OtherFiles", "{9CDEBCC6-504F-4884-8C47-0AE824AC5D0A}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\.gitignore = ..\..\.gitignore
+		..\..\changelog.md = ..\..\changelog.md
+		..\..\LICENSE = ..\..\LICENSE
+		..\..\README.md = ..\..\README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "About", "About", "{1A4CB05C-1B3B-46C9-B97A-F36470764F47}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\About\About.xml = ..\..\About\About.xml
+		..\..\About\Manifest.xml = ..\..\About\Manifest.xml
+		..\..\About\Preview.png = ..\..\About\Preview.png
+		..\..\About\PublishedFileId.txt = ..\..\About\PublishedFileId.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
-		Release|Any CPU = Release|Any CPU
 		Profile|Any CPU = Profile|Any CPU
+		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{B4FD4309-52D1-45CD-A5CD-316C5556EB2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B4FD4309-52D1-45CD-A5CD-316C5556EB2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4FD4309-52D1-45CD-A5CD-316C5556EB2C}.Profile|Any CPU.ActiveCfg = Release|Any CPU
+		{B4FD4309-52D1-45CD-A5CD-316C5556EB2C}.Profile|Any CPU.Build.0 = Release|Any CPU
 		{B4FD4309-52D1-45CD-A5CD-316C5556EB2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B4FD4309-52D1-45CD-A5CD-316C5556EB2C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1A4CB05C-1B3B-46C9-B97A-F36470764F47} = {9CDEBCC6-504F-4884-8C47-0AE824AC5D0A}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F474ED70-6D4D-4B61-B142-7807856AE8D0}
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		Policies = $0

@@ -1,2 +1,4 @@
 /Assemblies/*.pdb
 /Assemblies/*.xml
+.vs/
+obj/

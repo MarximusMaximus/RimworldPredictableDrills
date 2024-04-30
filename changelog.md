@@ -1,3 +1,9 @@
+# v1.2.1 - Rimworld 1.5 Update
+**Changes** 
+- Modified project files for easier maintenance
+- Repack for 1.5 (should still be compatible with 1.3 and 1.4)
+- No code changes were needed
+
 # v1.2.0 - Rimworld 1.4 Update
 **Features**
 - Updated to Rimworld 1.4 (Still compatable with 1.3 as well)
